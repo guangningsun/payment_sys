@@ -66,6 +66,7 @@ def pay_all(request):
         try:
             if id_card_num:
                 paymentinfo_list = PaymentInfo.objects.filter(stu_id_card_num=id_card_num).filter(payment_status='0').filter(id__in =payment_id_list)
+                logger.info("缴费列表 %s " % (paymentinfo_list))
                 return  _generate_json_message(True,"缴费成功")
         except:
             return _generate_json_message(False,"缴费失败")
