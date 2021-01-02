@@ -67,16 +67,17 @@ def user_login(request):
             if id_card_num:
                 student_info = StudentInfo.objects.get(stu_id_card=id_card_num)
             if student_info is not None:
-                # return _generate_json_message(True,"登录成功")
-                res_json = {"error": 0,"msg": {"登录成功"}}
-                return Response(res_json)
+                return _generate_json_message(True,"登录成功")
+                # res_json = {"error": 0,"msg": {"登录成功"}}
+                # return Response(res_json)
             else:
-                # return _generate_json_message(False,"登录失败")
-                res_json = {"error": 0,"msg": {"登录失败"}}
-                return Response(res_json)
+                return _generate_json_message(False,"登录失败")
+                # res_json = {"error": 0,"msg": {"登录失败"}}
+                # return Response(res_json)
         except:
-            res_json = {"error": 0,"msg": {"登录失败"}}
-            return Response(res_json)
+            return _generate_json_message(False,"登录失败")
+            # res_json = {"error": 0,"msg": {"登录失败"}}
+            # return Response(res_json)
 
 # 获取学生付款列表
 def get_student_pay_list_info(request):
