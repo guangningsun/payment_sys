@@ -10,12 +10,12 @@ from AppModel import *
 
 # 学生类
 class StudentInfo(models.Model):
-    stu_num = models.CharField(max_length=200)
-    stu_name = models.CharField(max_length=200)
-    stu_id_card = models.CharField(max_length=200)
-    stu_sexy = models.CharField(max_length=200)
-    stu_phone_num = models.CharField(max_length=200)
-    stu_desc = models.CharField(max_length=200)
+    stu_num = models.CharField(max_length=200,verbose_name='学号')
+    stu_name = models.CharField(max_length=200,verbose_name='学生姓名')
+    stu_id_card = models.CharField(max_length=200,verbose_name='身份证号')
+    stu_sexy = models.CharField(max_length=200,verbose_name='性别')
+    stu_phone_num = models.CharField(max_length=200,verbose_name='手机号')
+    stu_desc = models.CharField(max_length=200,verbose_name='备注')
     class_id = TreeForeignKey('ClassInfo',on_delete=models.CASCADE,null=True,blank=True,verbose_name='所在班级')
     
     class Meta:
@@ -27,9 +27,9 @@ class StudentInfo(models.Model):
 
 # 班级类
 class ClassInfo(models.Model):
-    class_id = models.CharField(max_length=200)
-    class_num = models.CharField(max_length=200)
-    class_name = models.CharField(max_length=200)
+    class_id = models.CharField(max_length=200,verbose_name='班级id')
+    class_num = models.CharField(max_length=200,verbose_name='班级号')
+    class_name = models.CharField(max_length=200,verbose_name='班级名称')
 
     class Meta:
         verbose_name = '班级信息'
