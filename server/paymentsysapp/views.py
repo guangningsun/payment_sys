@@ -23,6 +23,7 @@ from django.conf import settings
 from django.db.models import Max 
 
 
+
 logger = logging.getLogger(__name__)
 logger.setLevel(level = logging.DEBUG)
 handler = logging.FileHandler("paymentsysapp.log")
@@ -56,6 +57,19 @@ def _generate_json_message(flag, message):
         return HttpResponse("{\"error\":1,\"msg\":\""+message+"\"}",
                             content_type='application/json',
                             )
+
+# 缴费接口
+def pay_all(request):
+    if reques.POST:
+        id_card_num = request.POST['id_card_num']
+        payment_id_list = request.POST['payment_id_list']
+        try:
+            if id_card_num:
+                paymentinfo_list = PaymentInfo.objects.filter(stu_id_card_num=id_card_num).filter(payment_status='0').filter(id__in =payment_id_list)
+                return return _generate_json_message(True,"缴费成功")
+        except:
+            return _generate_json_message(False,"缴费失败")
+        
 
 
 # 用户登录

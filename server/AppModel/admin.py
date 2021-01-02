@@ -51,10 +51,10 @@ class ClassInfoAdmin(ImportExportModelAdmin):
 # 缴费管理
 @admin.register(PaymentInfo)
 class PaymentInfoAdmin(ImportExportModelAdmin):
-    list_display = ['payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_id_card_num','stu_payment_time','payment_res_desc','merOrderId']
-    search_fields = ('payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_id_card_num','stu_payment_time','payment_res_desc','merOrderId')
+    list_display = ["payment_name",'payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_id_card_num','stu_payment_time','payment_res_desc','merOrderId']
+    search_fields = ("payment_name",'payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_id_card_num','stu_payment_time','payment_res_desc','merOrderId')
     fieldsets = [
-       ('用户数据', {'fields': ['payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_id_card_num','stu_payment_time','payment_res_desc','merOrderId'], 'classes': ['']}),
+       ('用户数据', {'fields': ["payment_name",'payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_id_card_num','stu_payment_time','payment_res_desc','merOrderId'], 'classes': ['']}),
     ]
     list_per_page = 15
 

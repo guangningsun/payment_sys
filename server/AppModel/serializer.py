@@ -20,4 +20,4 @@ class PaymentInfoSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = PaymentInfo
-        fields = ('payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_id_card_num','stu_payment_time','payment_res_desc','merOrderId')
+        fields = ("payment_name",'payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_id_card_num','stu_payment_time','payment_res_desc','merOrderId')
