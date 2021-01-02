@@ -88,9 +88,13 @@ def get_student_pay_list_info(request):
                     dict_tmp.update(stu_bill.__dict__)
                     dict_tmp.pop("_state", None)
                     list_response.append(dict_tmp)
-                return HttpResponse("{\"name\":\""+stu_info.stu_name+"\",\"class\":\""+stu_info.class_name+"\",\"tel_num\":\""+stu_info.stu_phone_num +"\",\"pay_item_list\":\""+list_response+"\"}",
-                            content_type='application/json',
-                            )
+                a = {"name": stu_info.stu_name,
+                     "class": stu_info.class_name,
+                     "tel_num": stu_info.stu_phone_num ,
+                     "pay_item_list": list_response}
+                logger.info("返回值为 %s" % (a))
+                # return HttpResponse("{\"name\":\""+stu_info.stu_name+"\",\"class\":\""+stu_info.class_name+"\",\"tel_num\":\""+stu_info.stu_phone_num +"\",\"pay_item_list\":\""+list_response+"\"}",
+                return HttpResponse(json.dumps(a),content_type='application/json',)
                 # return _generate_json_from_models(list_response)
         except:
             return _generate_json_message(False, "get student bill  false")
