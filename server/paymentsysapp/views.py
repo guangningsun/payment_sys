@@ -65,7 +65,7 @@ def user_login(request):
         # tel_num = request.POST['tel_num']
         try:
             if id_card_num:
-                student_info = StudentInfo.objects.get(id_card_num=id_card_num)
+                student_info = StudentInfo.objects.get(stu_id_card=id_card_num)
             if student_info is not None:
                 return _generate_json_message(True,"登录成功")
             else:
