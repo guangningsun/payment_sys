@@ -60,7 +60,7 @@ def _generate_json_message(flag, message):
 
 # 缴费接口
 def pay_all(request):
-    if reques.POST:
+    if request.POST:
         id_card_num = request.POST['id_card_num']
         payment_id_list = request.POST['payment_id_list']
         try:
