@@ -11,6 +11,8 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     re_path(r'^media/(?P<path>.+)$', serve, {'document_root': settings.MEDIA_ROOT}),
     path('user_login/', views.user_login),
+    path('get_student_pay_list_info/', views.get_student_pay_list_info),
+    
     
 ] 
  

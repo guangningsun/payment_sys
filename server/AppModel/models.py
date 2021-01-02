@@ -42,14 +42,15 @@ class ClassInfo(models.Model):
 
 # 缴费信息类
 class PaymentInfo(models.Model):
-    payment_create_time = models.CharField(max_length=200)
-    payment_class_name = models.CharField(max_length=200)
-    payment_amount = models.CharField(max_length=200)
-    payment_status = models.CharField(max_length=200)
-    stu_num_id = models.CharField(max_length=200)
-    stu_payment_time = models.CharField(max_length=200)
-    payment_res_desc = models.CharField(max_length=200)
-    merOrderId = models.CharField(max_length=200,default='None')
+    payment_create_time = models.CharField(max_length=200,verbose_name='创建时间')
+    payment_class_name = models.CharField(max_length=200,verbose_name='班级名称')
+    payment_amount = models.CharField(max_length=200,verbose_name='缴费金额')
+    payment_status = models.CharField(max_length=200,verbose_name='缴费状态')
+    stu_num_id = models.CharField(max_length=200,verbose_name='学号')
+    stu_id_card_num = models.CharField(max_length=200,verbose_name='身份证')
+    stu_payment_time = models.CharField(max_length=200,verbose_name='学生付款时间')
+    payment_res_desc = models.CharField(max_length=200,verbose_name='付款描述')
+    merOrderId = models.CharField(max_length=200,default='None',verbose_name='订单id')
 
     class Meta:
         verbose_name = '缴费信息'
