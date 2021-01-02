@@ -7,7 +7,7 @@ class StudentInfoSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = StudentInfo
-        fields = ('stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_id')
+        fields = ('stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc')
 
 
 class ClassInfoSerializer(serializers.ModelSerializer):

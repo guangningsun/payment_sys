@@ -29,10 +29,10 @@ logger.addHandler(handler)
 # 学生管理
 @admin.register(StudentInfo)
 class StudentInfoAdmin(ImportExportModelAdmin):
-    list_display = ['id','stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_id']
-    search_fields = ('stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_id')
+    list_display = ['id','stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_name']
+    search_fields = ('stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_name')
     fieldsets = [
-       ('用户数据', {'fields': ['stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_id'], 'classes': ['']}),
+       ('用户数据', {'fields': ['stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_name'], 'classes': ['']}),
     ]
     list_per_page = 15
 
