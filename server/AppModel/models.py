@@ -16,7 +16,7 @@ class StudentInfo(models.Model):
     stu_sexy = models.CharField(max_length=200,verbose_name='性别')
     stu_phone_num = models.CharField(max_length=200,verbose_name='手机号')
     stu_desc = models.CharField(max_length=200,verbose_name='备注')
-    class_id = TreeForeignKey('ClassInfo',on_delete=models.CASCADE,null=True,blank=True,verbose_name='所在班级')
+    class_id = TreeForeignKey(ClassInfo, on_delete=models.CASCADE,null=True,blank=True,verbose_name='所在班级')
     
     class Meta:
         verbose_name = '学生信息'
