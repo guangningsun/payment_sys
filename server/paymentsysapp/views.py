@@ -21,6 +21,7 @@ import requests,configparser
 from AppModel.WXBizDataCrypt import WXBizDataCrypt 
 from django.conf import settings
 from django.db.models import Max 
+import ast
 
 
 
@@ -65,7 +66,7 @@ def pay_all(request):
         payment_id_list = request.POST['payment_id_list']
         try:
             if id_card_num:
-                paymentinfo_list = PaymentInfo.objects.filter(stu_id_card_num=id_card_num).filter(payment_status='0').filter(id__in =payment_id_list)
+                paymentinfo_list = PaymentInfo.objects.filter(stu_id_card_num=id_card_num).filter(payment_status='0').filter(id__in =ast.literal_eval(payment_id_list)))
                 logger.info("缴费列表 %s " % (paymentinfo_list))
                 return  _generate_json_message(True,"缴费成功")
         except:
