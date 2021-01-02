@@ -93,7 +93,8 @@ def get_student_pay_list_info(request):
                 a = {"name": stu_info.stu_name,
                      "class": stu_info.class_name,
                      "tel_num": stu_info.stu_phone_num ,
-                     "pay_item_list": list_response}
+                     "pay_item_list": list_response,
+                     "total_price": total_price}
                 logger.info("返回值为 %s" % (a))
                 # return HttpResponse("{\"name\":\""+stu_info.stu_name+"\",\"class\":\""+stu_info.class_name+"\",\"tel_num\":\""+stu_info.stu_phone_num +"\",\"pay_item_list\":\""+list_response+"\"}",
                 return HttpResponse(json.dumps(a),content_type='application/json',)
