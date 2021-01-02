@@ -80,9 +80,7 @@ def get_student_pay_list_info(request):
         id_card_num = request.POST['id_card_num']
         try:
             if id_card_num:
-                stu_bill_list = PaymentInfo.objects.\
-                    filter(stu_id_card_num=id_card_num).\
-                    filter(payment_status='0') 
+                stu_bill_list = PaymentInfo.objects.filter(stu_id_card_num=id_card_num).filter(payment_status='0') 
                 list_response = []
                 for stu_bill in stu_bill_list:
                     dict_tmp = {}
