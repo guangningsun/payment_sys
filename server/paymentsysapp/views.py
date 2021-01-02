@@ -65,12 +65,11 @@ def user_login(request):
         # tel_num = request.POST['tel_num']
         try:
             if id_card_num:
-                user_info = UserInfo.objects.get(id_card_num=id_card_num)
-            if user_info is not None:
-                if user_info.tel_num == tel_num:
-                    return _generate_json_message(True,"登录成功")
-                else:
-                    return _generate_json_message(False,"登录失败")
+                student_info = StudentInfo.objects.get(id_card_num=id_card_num)
+            if student_info is not None:
+                return _generate_json_message(True,"登录成功")
+            else:
+                return _generate_json_message(False,"登录失败")
         except:
             return _generate_json_message(False, "登录失败")
 
