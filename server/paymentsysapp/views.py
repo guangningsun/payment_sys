@@ -81,12 +81,16 @@ def get_student_pay_list_info(request):
         try:
             if id_card_num:
                 stu_bill_list = PaymentInfo.objects.filter(stu_id_card_num=id_card_num).filter(payment_status='0') 
+                stu_info = StudentInfo.objects.get(stu_id_card=id_card_num)
                 list_response = []
                 for stu_bill in stu_bill_list:
                     dict_tmp = {}
                     dict_tmp.update(stu_bill.__dict__)
                     dict_tmp.pop("_state", None)
                     list_response.append(dict_tmp)
-                return _generate_json_from_models(list_response)
+                return HttpResponse("{\"name\":"+stu_info.stu_name+",\"class\":"+stu_info.class_name+",\"tel_num\":"+stu_info.stu_phone_num +",\"pay_item_list\":"+list_response+"}",
+                            content_type='application/json',
+                            )
+                # return _generate_json_from_models(list_response)
         except:
             return _generate_json_message(False, "get student bill  false")

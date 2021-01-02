@@ -189,7 +189,7 @@ SIMPLEUI_CONFIG = {
             'url': 'AppModel/classinfo/',
             'icon': 'fa fa-server'
         },{
-            'name': '班级管理',
+            'name': '缴费管理',
             'url': 'AppModel/paymentinfo/',
             'icon': 'fa fa-server'
         }]
