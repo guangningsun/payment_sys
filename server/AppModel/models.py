@@ -42,6 +42,7 @@ class ClassInfo(models.Model):
 
 # 缴费信息类
 class PaymentInfo(models.Model):
+    payment_name = models.CharField(max_length=200,verbose_name='缴费名称')
     payment_create_time = models.CharField(max_length=200,verbose_name='创建时间')
     payment_class_name = models.CharField(max_length=200,verbose_name='班级名称')
     payment_amount = models.CharField(max_length=200,verbose_name='缴费金额')

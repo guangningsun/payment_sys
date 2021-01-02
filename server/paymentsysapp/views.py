@@ -83,7 +83,9 @@ def get_student_pay_list_info(request):
                 stu_bill_list = PaymentInfo.objects.filter(stu_id_card_num=id_card_num).filter(payment_status='0') 
                 stu_info = StudentInfo.objects.get(stu_id_card=id_card_num)
                 list_response = []
+                total_price = 0
                 for stu_bill in stu_bill_list:
+                    total_price = total_price + int(stu_bill.payment_amount)
                     dict_tmp = {}
                     dict_tmp.update(stu_bill.__dict__)
                     dict_tmp.pop("_state", None)
