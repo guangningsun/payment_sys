@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'epidemicapp',
+    'paymentsysapp',
     'AppModel',
     'corsheaders',
     'mptt',
@@ -67,7 +67,7 @@ MIDDLEWARE = [
     # 'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = 'epidemicapp.urls'
+ROOT_URLCONF = 'paymentsysapp.urls'
 
 # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
 TEMPLATES = [
@@ -86,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'epidemicapp.wsgi.application'
+WSGI_APPLICATION = 'paymentsysapp.wsgi.application'
 
 
 # Database
@@ -102,7 +102,7 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'epidemic',
+#         'NAME': 'paymentsys',
 #         'USER': 'root',
 #         'PASSWORD': 'root',
 #         'HOST': '127.0.0.1',
@@ -177,15 +177,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 SIMPLEUI_CONFIG = {
     'menus': [{
         'app': 'AppModel',
-        'name': '疫情管理',
+        'name': '缴费管理',
         'icon': 'fab fa-dashcube',
         'models': [{
-            'name': '入住管理',
-            'url': 'AppModel/checkinfo/',
+            'name': '学生管理',
+            'url': 'AppModel/studentinfo/',
             'icon': 'fa fa-server'
         },{
-            'name': '用户管理',
-            'url': 'AppModel/userinfo/',
+            'name': '班级管理',
+            'url': 'AppModel/classinfo/',
+            'icon': 'fa fa-server'
+        },{
+            'name': '班级管理',
+            'url': 'AppModel/paymentinfo/',
             'icon': 'fa fa-server'
         }]
         },{
@@ -219,4 +223,4 @@ CSRF_COOKIE_SECURE = True
 
 CSRF_TRUSTED_ORIGINS = ['brilliantlife.com.cn']
 
-CONF_DIR = os.path.join(BASE_DIR, "conf/epidemic_server.conf")
+CONF_DIR = os.path.join(BASE_DIR, "conf/paymentsys_server.conf")

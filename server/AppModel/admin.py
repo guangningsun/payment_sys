@@ -26,33 +26,42 @@ logger.addHandler(handler)
 
 
 
-# 用户管理
-@admin.register(UserInfo)
-class UserInfoAdmin(ImportExportModelAdmin): 
-    list_display = ['id','nick_name','user_name','weixin_openid','phone_number','auth']
-    search_fields = ('nick_name','user_name','weixin_openid','phone_number','auth')
+# 学生管理
+@admin.register(StudentInfo)
+class StudentInfoAdmin(ImportExportModelAdmin):
+    list_display = ['id','stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_id']
+    search_fields = ('stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_id')
     fieldsets = [
-       ('用户数据', {'fields': ['nick_name','user_name','weixin_openid','phone_number','auth'], 'classes': ['']}),
+       ('用户数据', {'fields': ['stu_num','stu_name','stu_id_card','stu_sexy','stu_phone_num','stu_desc','class_id'], 'classes': ['']}),
     ]
     list_per_page = 15
 
 
-# 用户管理
-@admin.register(CheckInfo)
-class CheckInfoAdmin(ImportExportModelAdmin): 
-    list_display = ['family_contact_name','family_tel_num','family_address','registerTime','checkin_status','family_member_num','family_id','name','gender','age','nation','id_num','tel_num','address','work_place','has_disease_radio','disease_name','medicine_name','has_take_medicine_radio','room','hotel']
-    search_fields = ('family_contact_name','family_tel_num','family_address','registerTime','checkin_status','family_member_num','family_id','name','gender','age','nation','id_num','tel_num','address','work_place','has_disease_radio','disease_name','medicine_name','has_take_medicine_radio','room','hotel')
+# 学生管理
+@admin.register(ClassInfo)
+class ClassInfoAdmin(ImportExportModelAdmin):
+    list_display = ['class_id','class_num','class_name']
+    search_fields = ('class_id','class_num','class_name')
     fieldsets = [
-       ('用户数据', {'fields': ['family_contact_name','family_tel_num','family_address','registerTime','checkin_status','family_member_num','family_id','name','gender','age','nation','id_num','tel_num','address','work_place','has_disease_radio','disease_name','medicine_name','has_take_medicine_radio','room','hotel'], 'classes': ['']}),
+       ('用户数据', {'fields': ['class_id','class_num','class_name'], 'classes': ['']}),
     ]
     list_per_page = 15
 
 
+# 缴费管理
+@admin.register(PaymentInfo)
+class PaymentInfoAdmin(ImportExportModelAdmin):
+    list_display = ['payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_payment_time','payment_res_desc','merOrderId']
+    search_fields = ('payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_payment_time','payment_res_desc','merOrderId')
+    fieldsets = [
+       ('用户数据', {'fields': ['payment_create_time','payment_class_name','payment_amount','payment_status','stu_num_id','stu_payment_time','payment_res_desc','merOrderId'], 'classes': ['']}),
+    ]
+    list_per_page = 15
 
 #admin.site.register(CommodityCategory , MPTTModelAdmin)
 
 
-admin.site.site_title = "疫情登记系统"
-admin.site.site_header = "疫情登记系统1.0.1"
+admin.site.site_title = "缴费系统"
+admin.site.site_header = "缴费系统1.0.1"
 
 
